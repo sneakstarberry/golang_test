@@ -12,7 +12,6 @@ type StrawberryJam struct {
 }
 
 type SpoonOfStrawberryJam struct {
-
 }
 
 func (s *SpoonOfStrawberryJam) String() string {

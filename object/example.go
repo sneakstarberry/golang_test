@@ -17,14 +17,6 @@ type Sandwitch struct {
 	val string
 }
 
-func GetBreads(num int) []*Bread {
-	breads := make([]*Bread, num)
-	for i := 0; i < num; i++ {
-		breads[i] = &Bread{val: "bread"}
-	}
-	return breads
-}
-
 func OpenStrawberryJam(jam *StrawberryJam) {
 	jam.opened = true
 }
@@ -37,17 +29,15 @@ func PutJamOnBread(bread *Bread, jam *SpoonOfStrawberry) {
 	bread.val += " + Strawberry Jam"
 }
 
-func MakeSandwitch(breads []*Bread) *Sandwitch {
+func MakeSandwitch(bread *Bread) *Sandwitch {
 	sandwitch := &Sandwitch{}
-	for i := 0; i < len(breads); i++ {
-		sandwitch.val += breads[i].val + " + "
-	}
+	sandwitch.val += bread.val
 	return sandwitch
 }
 
 func main() {
-	// 1. 빵 두개를 꺼낸다.
-	breads := GetBreads(2)
+	// 1. 빵 한개를 꺼낸다.
+	bread := &Bread{val: "bread"}
 
 	jam := &StrawberryJam{}
 
@@ -58,10 +48,10 @@ func main() {
 	spoon := GetOneSpoon(jam)
 
 	// 4. 딸기잼을 빵에 바른다.
-	PutJamOnBread(breads[0], spoon)
+	PutJamOnBread(bread, spoon)
 
 	// 5. 빵을 덮는다.
-	sandwitch := MakeSandwitch(breads)
+	sandwitch := MakeSandwitch(bread)
 
 	// 6. 완성
 	fmt.Println(sandwitch.val)
