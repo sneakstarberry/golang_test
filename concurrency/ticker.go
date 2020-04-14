@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+// 왜 슬렉에 메시지가 안올라가지?
+
 func push(c chan int) {
 	i := 0
 	for {
